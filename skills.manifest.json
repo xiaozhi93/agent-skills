@@ -1,0 +1,32 @@
+{
+  "repo": "xiaozhi93/agent-skills",
+  "version": "1.0.0",
+  "install_url": "https://github.com/xiaozhi93/agent-skills",
+  "skills": [
+    {
+      "name": "app-distill",
+      "description": "从复杂应用源码蒸馏 MVP 到新项目",
+      "triggers": ["蒸馏 MVP", "提取核心功能", "精简重写", "app-distill", "最小可运行"],
+      "requires": ["find-skills", "gitnexus-exploring", "verification-before-completion"]
+    },
+    {
+      "name": "app-ui-redesign",
+      "description": "从现有应用源码重设计 UI（Stitch + TDD）",
+      "triggers": ["UI 重设计", "界面重做", "换皮", "DESIGN.md", "app-ui-redesign"],
+      "requires": ["gitnexus-exploring", "frontend-design", "test-driven-development", "verification-before-completion", "brainstorming"],
+      "requires_mcp": ["user-stitch"]
+    },
+    {
+      "name": "conversation-to-article",
+      "description": "将对话提炼为可分享文章",
+      "triggers": ["对话转文章", "整理成文章", "提取对话精华", "conversation-to-article"],
+      "requires": ["verification-before-completion"]
+    },
+    {
+      "name": "repo-feature-distill",
+      "description": "跨仓库蒸馏并复刻指定功能",
+      "triggers": ["蒸馏功能", "迁移功能", "复刻功能", "移植功能", "repo-feature-distill"],
+      "requires": ["gitnexus-exploring", "verification-before-completion"]
+    }
+  ]
+}
