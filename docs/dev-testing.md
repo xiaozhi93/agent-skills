@@ -13,6 +13,7 @@
 | `conversation-to-article` | 「把这段对话整理成文章」 | 进入 Phase 1 澄清：确认文章类型、受众、风格，不直接写正文 |
 | `repo-feature-distill` | 「从 A 仓库蒸馏 X 功能到 B 仓库」 | 进入 Phase 1 澄清：确认源仓、目标仓、功能边界 |
 | `creating-skills-guided` | 「帮我引导式创建一个技能」 | 进入 Phase 1 访谈：产出技能意图简报，不直接写 SKILL.md |
+| `business-impl-unify` | 「统一这个 monorepo 里订单的三套实现」 | 进入 Phase 1：业务域简报，不直接改代码 |
 
 ---
 
@@ -36,6 +37,7 @@
 | `conversation-to-article` | 对话转文章、整理成文章、提取对话精华、conversation-to-article |
 | `repo-feature-distill` | 蒸馏功能、迁移功能、复刻功能、移植功能、repo-feature-distill |
 | `creating-skills-guided` | 引导式创建技能、创建技能、guided skill creation、creating-skills-guided、先澄清再写技能 |
+| `business-impl-unify` | 统一业务实现、多套实现、实现分叉、收敛实现、business-impl-unify |
 
 ---
 
