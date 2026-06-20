@@ -36,9 +36,16 @@
     },
     {
       "name": "business-impl-unify",
-      "description": "统一同一业务的多套实现，并配套 Agent Skill",
+      "description": "统一同一业务多套实现（Superpowers brainstorming 域扩展）",
       "triggers": ["统一业务实现", "多套实现", "实现分叉", "收敛实现", "business-impl-unify"],
-      "requires": ["gitnexus-exploring", "test-driven-development", "verification-before-completion", "creating-skills-guided", "subagent-driven-development"]
+      "requires": [
+        "brainstorming",
+        "writing-plans",
+        "gitnexus-exploring",
+        "test-driven-development",
+        "subagent-driven-development",
+        "verification-before-completion"
+      ]
     }
   ]
 }
