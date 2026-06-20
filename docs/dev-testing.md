@@ -12,6 +12,7 @@
 | `app-ui-redesign` | 「重设计这个 App 的 UI，用 Stitch」 | 进入 Phase 1 澄清：了解重设计范围，提及 Stitch / DESIGN.md |
 | `conversation-to-article` | 「把这段对话整理成文章」 | 进入 Phase 1 澄清：确认文章类型、受众、风格，不直接写正文 |
 | `repo-feature-distill` | 「从 A 仓库蒸馏 X 功能到 B 仓库」 | 进入 Phase 1 澄清：确认源仓、目标仓、功能边界 |
+| `creating-skills-guided` | 「帮我引导式创建一个技能」 | 进入 Phase 1 访谈：产出技能意图简报，不直接写 SKILL.md |
 
 ---
 
@@ -34,6 +35,7 @@
 | `app-ui-redesign` | UI 重设计、界面重做、换皮、DESIGN.md、app-ui-redesign |
 | `conversation-to-article` | 对话转文章、整理成文章、提取对话精华、conversation-to-article |
 | `repo-feature-distill` | 蒸馏功能、迁移功能、复刻功能、移植功能、repo-feature-distill |
+| `creating-skills-guided` | 引导式创建技能、创建技能、guided skill creation、creating-skills-guided、先澄清再写技能 |
 
 ---
 

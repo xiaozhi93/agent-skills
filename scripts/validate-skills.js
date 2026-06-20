@@ -112,7 +112,7 @@ function validateSkill(dirName, knownSkills) {
          'test-driven-development', 'verification-before-completion',
          'gitnexus-exploring', 'gitnexus-refactoring', 'creating-skills-guided',
          'subagent-driven-development', 'conversation-to-obsidian',
-         'generate-dev-handoff-prompt'].includes(ref)) continue;
+         'generate-dev-handoff-prompt', 'create-skill', 'writing-skills', 'create-rule'].includes(ref)) continue;
     warnings.push(`${dirName}: possible external reference '${ref}'`);
   }
 

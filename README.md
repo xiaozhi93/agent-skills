@@ -1,6 +1,6 @@
 # Agent Skills
 
-个人 Agent Skill 集合：应用蒸馏、UI 重设计、对话转文章、跨仓功能迁移。
+个人 Agent Skill 集合：应用蒸馏、UI 重设计、对话转文章、跨仓功能迁移、引导式创建技能。
 
 通过 [`npx skills`](https://github.com/vercel-labs/skills) 安装到 Cursor，由 [`skills.manifest.json`](skills.manifest.json) 驱动发现与 CI 校验。
 
@@ -12,6 +12,7 @@
 | [app-ui-redesign](skills/app-ui-redesign/SKILL.md) | UI 重设计（Stitch + TDD） | UI 重设计、换皮、DESIGN.md |
 | [conversation-to-article](skills/conversation-to-article/SKILL.md) | 对话转文章 | 对话转文章、整理成文章 |
 | [repo-feature-distill](skills/repo-feature-distill/SKILL.md) | 跨仓功能蒸馏 | 蒸馏功能、迁移功能、复刻功能 |
+| [creating-skills-guided](skills/creating-skills-guided/SKILL.md) | 引导式创建 Agent Skill | 引导式创建技能、创建技能、guided skill creation |
 
 ## 快速安装
 

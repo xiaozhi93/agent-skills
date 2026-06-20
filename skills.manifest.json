@@ -1,6 +1,6 @@
 {
   "repo": "xiaozhi93/agent-skills",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "install_url": "https://github.com/xiaozhi93/agent-skills",
   "skills": [
     {
@@ -27,6 +27,12 @@
       "description": "跨仓库蒸馏并复刻指定功能",
       "triggers": ["蒸馏功能", "迁移功能", "复刻功能", "移植功能", "repo-feature-distill"],
       "requires": ["gitnexus-exploring", "verification-before-completion"]
+    },
+    {
+      "name": "creating-skills-guided",
+      "description": "引导式创建 Agent Skill（访谈→编排→实施→验证→部署）",
+      "triggers": ["引导式创建技能", "创建技能", "guided skill creation", "creating-skills-guided", "先澄清再写技能"],
+      "requires": ["create-skill", "writing-skills"]
     }
   ]
 }

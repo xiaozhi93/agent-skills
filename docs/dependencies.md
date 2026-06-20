@@ -1,6 +1,6 @@
 # 外部依赖
 
-本仓库的 4 个技能在运行时依赖以下**外部**技能与 MCP 服务。这些依赖**不会**随 `npx skills add` 自动安装，使用前请单独配置。
+本仓库的 5 个技能在运行时依赖以下**外部**技能与 MCP 服务。这些依赖**不会**随 `npx skills add` 自动安装，使用前请单独配置。
 
 依赖关系来自 [`skills.manifest.json`](../skills.manifest.json) 中的 `requires` 与 `requires_mcp` 字段。
 
@@ -16,6 +16,8 @@
 | `frontend-design` | 技能 | app-ui-redesign | UI 美学与设计方向指导 |
 | `test-driven-development` | 技能 | app-ui-redesign | 实现阶段遵循 TDD 红绿重构 |
 | `brainstorming` | 技能 | app-ui-redesign | 创意设计前探索方案与需求 |
+| `create-skill` | 技能 | creating-skills-guided | Phase 3 实施时的结构与路径规范 |
+| `writing-skills` | 技能 | creating-skills-guided | Phase 4 验证时的 TDD 压测与 CSO 规范 |
 | `user-stitch` | MCP | app-ui-redesign | Google Stitch 设计生成与 DESIGN.md 管理 |
 
 ---
@@ -46,6 +48,12 @@
 | 字段 | 依赖 |
 |------|------|
 | `requires` | `gitnexus-exploring`, `verification-before-completion` |
+
+### creating-skills-guided
+
+| 字段 | 依赖 |
+|------|------|
+| `requires` | `create-skill`, `writing-skills` |
 
 ---
 
