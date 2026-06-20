@@ -24,6 +24,7 @@ skills/<name>/
 
 - `SKILL.md` 是唯一入口，Agent 首先读取此文件
 - 阶段细节放在 `phases/`，用相对链接从 `SKILL.md` 引用
+- 例外：`business-impl-unify` 使用 `extension/brainstorming-addon.md` 扩展 Superpowers brainstorming，不设 `phases/`。
 - 辅助材料（examples、reference、templates）通过链接引用，不内联大段内容
 
 ---
@@ -198,3 +199,4 @@ Phase 5 遵循 `verification-before-completion`
 | [app-ui-redesign](../skills/app-ui-redesign/SKILL.md) | 6 | Stitch MCP、TDD、reference/ |
 | [conversation-to-article](../skills/conversation-to-article/SKILL.md) | 4 | 轻量流程、example-output.md |
 | [repo-feature-distill](../skills/repo-feature-distill/SKILL.md) | 5 | 跨仓迁移、templates/ |
+| [business-impl-unify](../skills/business-impl-unify/SKILL.md) | extension/ | Superpowers brainstorming 域扩展（无 phases/） |

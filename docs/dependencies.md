@@ -15,11 +15,11 @@
 | `verification-before-completion` | 技能 | 全部 4 个技能 | 完成前运行验证命令，证据先于断言 |
 | `frontend-design` | 技能 | app-ui-redesign | UI 美学与设计方向指导 |
 | `test-driven-development` | 技能 | app-ui-redesign | 实现阶段遵循 TDD 红绿重构 |
-| `brainstorming` | 技能 | app-ui-redesign | 创意设计前探索方案与需求 |
+| `brainstorming` | 技能 | app-ui-redesign, business-impl-unify | 设计阶段探索方案与需求 |
+| `writing-plans` | 技能 | business-impl-unify | spec 批准后生成实现计划 |
 | `create-skill` | 技能 | creating-skills-guided | Phase 3 实施时的结构与路径规范 |
 | `writing-skills` | 技能 | creating-skills-guided | Phase 4 验证时的 TDD 压测与 CSO 规范 |
-| `creating-skills-guided` | 技能 | business-impl-unify | Phase 6 配套 Skill 部署 |
-| `subagent-driven-development` | 技能 | business-impl-unify | Phase 4 多步迁移（≥2 步）子代理驱动执行 |
+| `subagent-driven-development` | 技能 | business-impl-unify | 多步迁移（≥2 步）子代理驱动执行 |
 | `user-stitch` | MCP | app-ui-redesign | Google Stitch 设计生成与 DESIGN.md 管理 |
 
 ---
@@ -61,7 +61,9 @@
 
 | 字段 | 依赖 |
 |------|------|
-| `requires` | `gitnexus-exploring`, `test-driven-development`, `verification-before-completion`, `creating-skills-guided`, `subagent-driven-development` |
+| `requires` | `brainstorming`, `writing-plans`, `gitnexus-exploring`, `test-driven-development`, `subagent-driven-development`, `verification-before-completion` |
+
+**可选（用户明确要求时）：** `creating-skills-guided`
 
 ---
 
@@ -74,6 +76,8 @@
 - `verification-before-completion`
 - `test-driven-development`
 - `brainstorming`
+- `writing-plans`
+- `subagent-driven-development`
 
 确保 Cursor 已启用 Superpowers 插件，或在对话中通过 `find-skills` 搜索安装。
 

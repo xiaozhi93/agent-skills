@@ -13,14 +13,19 @@
 | `conversation-to-article` | 「把这段对话整理成文章」 | 进入 Phase 1 澄清：确认文章类型、受众、风格，不直接写正文 |
 | `repo-feature-distill` | 「从 A 仓库蒸馏 X 功能到 B 仓库」 | 进入 Phase 1 澄清：确认源仓、目标仓、功能边界 |
 | `creating-skills-guided` | 「帮我引导式创建一个技能」 | 进入 Phase 1 访谈：产出技能意图简报，不直接写 SKILL.md |
-| `business-impl-unify` | 「统一这个 monorepo 里订单的三套实现」 | 进入 Phase 1：业务域简报，不直接改代码 |
+| `business-impl-unify` | 「统一这个 monorepo 里订单的三套实现」 | Announce → 读 addon → invoke brainstorming → 域澄清，不直接改代码 |
+| `business-impl-unify` | 「三套登录逻辑，先出差异报告，不要改代码」 | spec 批准后停止，不 invoke writing-plans |
+| `business-impl-unify` | 「收敛完帮我写个 Skill」 | 验证通过后 → creating-skills-guided（非默认） |
 
 ---
 
 ## 验证清单
 
 - [ ] Agent 明确引用技能名称或阶段流程
+- [ ] 引用 brainstorming + addon 时（business-impl-unify），澄清后、提方案前出现实现清单与差异矩阵
+- [ ] spec 未批不 invoke writing-plans（business-impl-unify）
 - [ ] Phase 1 会提出澄清问题，遵守 HARD-GATE（用户确认前不进入下一阶段）
+- [ ] 未要求时不自动进入 creating-skills-guided（business-impl-unify）
 - [ ] 未跳过 `## Red Flags` 中列出的反模式
 - [ ] 依赖外部技能时（如 `gitnexus-exploring`），Agent 尝试加载或说明需要该技能
 
