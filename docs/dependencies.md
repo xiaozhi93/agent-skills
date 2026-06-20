@@ -19,6 +19,7 @@
 | `create-skill` | 技能 | creating-skills-guided | Phase 3 实施时的结构与路径规范 |
 | `writing-skills` | 技能 | creating-skills-guided | Phase 4 验证时的 TDD 压测与 CSO 规范 |
 | `creating-skills-guided` | 技能 | business-impl-unify | Phase 6 配套 Skill 部署 |
+| `subagent-driven-development` | 技能 | business-impl-unify | Phase 4 多步迁移（≥2 步）子代理驱动执行 |
 | `user-stitch` | MCP | app-ui-redesign | Google Stitch 设计生成与 DESIGN.md 管理 |
 
 ---
@@ -60,7 +61,7 @@
 
 | 字段 | 依赖 |
 |------|------|
-| `requires` | `gitnexus-exploring`, `test-driven-development`, `verification-before-completion`, `creating-skills-guided` |
+| `requires` | `gitnexus-exploring`, `test-driven-development`, `verification-before-completion`, `creating-skills-guided`, `subagent-driven-development` |
 
 ---
 

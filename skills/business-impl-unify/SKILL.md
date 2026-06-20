@@ -24,15 +24,16 @@ source: xiaozhi93/agent-skills
 
 1. 业务域简报（Phase 1）
 2. 实现清单 + 关系图（Phase 2）
-3. 差异报告 + 统一标准提案（Phase 3）
-4. 收敛后的代码（Phase 4）
+3. 差异报告 + 统一标准 + **迁移步骤计划**（Phase 3）
+4. 收敛后的代码（Phase 4，多步时子代理驱动）
 5. 验证报告（Phase 5）
 6. 配套 Agent Skill（Phase 6）
 
 **内嵌能力：**
 
 - Phase 2 → `gitnexus-exploring`（可用时）
-- Phase 4 → `test-driven-development`
+- Phase 3 → 产出迁移步骤计划（≥2 步时）
+- Phase 4 → `subagent-driven-development`（≥2 步）+ `test-driven-development`
 - Phase 5 → `verification-before-completion`
 - Phase 6 → `creating-skills-guided`
 
@@ -61,6 +62,7 @@ source: xiaozhi93/agent-skills
 | 一次收敛多个无关业务 | 变更过大，无法验证 |
 | 跳过验证就写配套 Skill | Skill 描述错误实现 |
 | Phase 6 裸写 SKILL.md | 缺门禁与压测，Skill 质量不可控 |
+| 多步迁移主会话一口气改完 | 上下文污染、跳过 review、难以回滚 |
 
 ## Six-Phase Pipeline
 
@@ -88,14 +90,15 @@ digraph pipeline {
 |-------|------|------|------|
 | 1 | [phases/01-clarify.md](phases/01-clarify.md) | 业务域简报 | 用户确认 → Phase 2 |
 | 2 | [phases/02-explore.md](phases/02-explore.md) | 实现清单 | 清单完整 → Phase 3 |
-| 3 | [phases/03-standardize.md](phases/03-standardize.md) | 差异报告 + 统一标准 | 用户确认 → Phase 4 |
-| 4 | [phases/04-converge.md](phases/04-converge.md) | 收敛代码 | 可测 → Phase 5 |
+| 3 | [phases/03-standardize.md](phases/03-standardize.md) | 差异报告 + 标准 + 迁移步骤 | 用户确认 → Phase 4 |
+| 4 | [phases/04-converge.md](phases/04-converge.md) | 收敛代码（子代理驱动） | 全部步骤完成 → Phase 5 |
 | 5 | [phases/05-verify.md](phases/05-verify.md) | 验证报告 | 通过 → Phase 6 |
 | 6 | [phases/06-skillify.md](phases/06-skillify.md) | 配套 Skill 已部署 | 完成 |
 
 <HARD-GATE>
 Do NOT enter Phase 2 until the user explicitly approves the Phase 1 brief.
-Do NOT enter Phase 4 until the user explicitly approves the Phase 3 standard proposal.
+Do NOT enter Phase 4 until the user explicitly approves the Phase 3 standard proposal and migration step plan.
+Do NOT execute multi-step Phase 4 inline in the parent session — use subagent-driven-development when migration steps ≥ 2.
 Do NOT enter Phase 6 until Phase 5 verification passes.
 Do NOT write companion SKILL.md directly — invoke creating-skills-guided in Phase 6.
 Do NOT unify more than one business domain per session.
@@ -107,8 +110,8 @@ When repos differ, move the agent to the appropriate workspace before reading or
 1. **Announce:** "Using business-impl-unify, starting Phase 1: Clarify."
 2. **Phase 1** → 业务域简报 → **wait for approval**
 3. **Phase 2** → 实现清单（GitNexus 优先）→ 进入 Phase 3
-4. **Phase 3** → 差异报告 + 统一标准 → **wait for approval**
-5. **Phase 4** → TDD 收敛 → 进入 Phase 5
+4. **Phase 3** → 差异报告 + 统一标准 + 迁移步骤表 → **wait for approval**
+5. **Phase 4** → 若 ≥2 步：`subagent-driven-development` 逐步派发；否则 TDD inline → Phase 5
 6. **Phase 5** → 验证报告 → 通过 → Phase 6
 7. **Phase 6** → `creating-skills-guided` 部署配套 Skill
 
@@ -118,7 +121,8 @@ When repos differ, move the agent to the appropriate workspace before reading or
 |--------|------|
 | 「统一订单业务的实现」 | Phase 1：单仓还是跨仓？成功标准？ |
 | 「三套登录逻辑合并一套」 | Phase 2 盘点三套入口与调用链 |
-| 「标准方案可以，开始改」 | Phase 4 |
+| 「标准方案可以，开始改」 | Phase 4：≥2 步则 subagent-driven-development |
+| 「一步做完就行」 | 仅当 Phase 3 步骤表只有 1 步时允许 inline |
 | 「只要报告不要改代码」 | 停止于 Phase 3，不走本技能全流程 |
 | 「收敛完帮我写个 Skill」 | Phase 6，走 creating-skills-guided |
 
@@ -128,10 +132,12 @@ When repos differ, move the agent to the appropriate workspace before reading or
 - 「先合并再补测试」→ 回到 Phase 4，先 TDD
 - 「Skill 随便写一段就行」→ 回到 Phase 6
 - 「顺便把支付也统一了」→ 回到 Phase 1，一次一域
-- 「跨仓直接 copy 文件」→ 违反适配原则
+- 「先把步骤 2–7 都在这个会话改完」→ 回到 Phase 4，按步派子代理
+- 「不用 review，快点合并」→ 违反 subagent-driven-development
 
 ## Additional Resources
 
 - 差异报告模板：[templates/divergence-report.md](templates/divergence-report.md)
 - 统一标准模板：[templates/standard-proposal.md](templates/standard-proposal.md)
+- 迁移步骤模板：[templates/migration-plan.md](templates/migration-plan.md)
 - 示例触发语：[examples.md](examples.md)

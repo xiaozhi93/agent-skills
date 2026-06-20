@@ -14,6 +14,19 @@
 **范围：** 单仓 `apps/web` + `apps/mobile` + `services/auth`  
 **成功标准：** 共享 `packages/auth-core`，两套客户端只保留 UI 适配层  
 
+## 多步迁移示例（Phase 3 → 4）
+
+Phase 3 产出步骤表：
+
+| 步骤 | 内容 | 状态 |
+|------|------|------|
+| 1 | 注册表 + dashboard/message-center | 待做 |
+| 2 | 移址 → BizShell B 类 | 待做 |
+| … | … | … |
+| N | 配套 Skill（Phase 6） | 待做 |
+
+Phase 4：**必须** `subagent-driven-development` — 主会话协调，每步 fresh subagent + 两阶段 review；禁止主会话一口气改完。
+
 ## 与相近技能的分工
 
 | 技能 | 何时用 |
