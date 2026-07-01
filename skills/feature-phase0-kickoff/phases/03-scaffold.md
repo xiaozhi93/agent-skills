@@ -76,5 +76,5 @@ requirements_root: docs/requirements/<feature-slug>/
 ```
 
 <HARD-GATE>
-用户确认 roadmap 后 → 进入 [04-handoff.md](04-handoff.md)。
+用户确认 roadmap 后 → 进入 [03-smoke-setup.md](03-smoke-setup.md)，再 [04-handoff.md](04-handoff.md)。
 </HARD-GATE>

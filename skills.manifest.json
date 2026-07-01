@@ -55,8 +55,8 @@
     },
     {
       "name": "feature-phase0-kickoff",
-      "description": "跨端大需求 Phase 0：归集 PRD/截图/API 到 docs/requirements 并生成 roadmap",
-      "triggers": ["Phase 0", "整理 requirements", "生成 roadmap", "需求归集", "feature-phase0-kickoff"],
+      "description": "跨端大需求 Phase 0：归集 PRD/截图/API、roadmap 与 smoke 登录 fixture",
+      "triggers": ["Phase 0", "整理 requirements", "生成 roadmap", "需求归集", "smoke auth", "feature-phase0-kickoff"],
       "requires": ["brainstorming", "writing-plans"]
     }
   ]

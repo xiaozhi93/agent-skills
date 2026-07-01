@@ -1,0 +1,16 @@
+{
+  "role": "admin",
+  "roleLabel": "管理员",
+  "platform": "pc",
+  "origin": "http://localhost:8000",
+  "user": "<mobile-or-login-name>",
+  "localStorage": {
+    "isLogin": "true",
+    "USERINFO": "<JSON string>",
+    "token": "<token>",
+    "sword-token": "<token>",
+    "enterpriseId": "<id>",
+    "userId": "<id>"
+  },
+  "sessionStorage": {}
+}

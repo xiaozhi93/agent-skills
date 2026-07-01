@@ -1,0 +1,14 @@
+{
+  "role": "store-executor",
+  "roleLabel": "门店执行人",
+  "platform": "h5",
+  "origin": "http://localhost:8001",
+  "user": "<userId>",
+  "localStorage": {
+    "AUTH_INFO": "<JSON string>",
+    "updateCommonParams": "<JSON string>"
+  },
+  "sessionStorage": {
+    "USER_TOKEN": "<optional>"
+  }
+}

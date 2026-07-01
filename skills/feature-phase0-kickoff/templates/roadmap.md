@@ -40,6 +40,7 @@ Step 0：`git fetch` → `checkout master` → `pull` → `checkout -b feature/<
 - **API 参考:** `api.md` §…
 - **Out of scope:** …
 - **Depends on:** —
+- **Smoke:** `docs/superpowers/plans/<phase-plan>.md` + `smoke/auth/`
 
 ### Phase 2: <名称>
 

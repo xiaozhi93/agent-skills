@@ -13,6 +13,7 @@
 - [ ] `docs/requirements/<slug>/roadmap.md` 已确认
 - [ ] `docs/requirements/<slug>/api.md` 已就位
 - [ ] `assets/README.md` 索引完整
+- [ ] `smoke/roles.md` + `auth/.gitignore` 已创建；登录 json 已保存或标待补
 - [ ] `MIGRATION.md` 审计记录完整
 - [ ] 原路径无残留副本（例外已记录）
 - [ ] 引用修复待办已列出（如有）
@@ -61,6 +62,8 @@ EOF
 **Execution mode 提醒（plan 完成后）：**
 - 同对话继续 → Step 0 → Subagent-Driven
 - 新开对话 → Step 0 → executing-plans + @plan
+
+**冒烟（Phase N 完成后）：** [templates/smoke-run-prompt.md](../templates/smoke-run-prompt.md)
 ```
 
 ## 4.4 会话结束

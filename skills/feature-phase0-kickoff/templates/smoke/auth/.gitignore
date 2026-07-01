@@ -1,0 +1,7 @@
+# 含 token，禁止提交。仅 example 与 README 可入库。
+*
+!.gitignore
+!README.md
+!**/.gitignore
+!**/*.example.json
+!**/README.md

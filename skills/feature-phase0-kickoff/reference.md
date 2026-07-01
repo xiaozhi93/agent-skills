@@ -103,6 +103,18 @@ PRD 内 AliDocs / 语雀 OSS 外链
 
 `roadmap.md` 必须含 **Git 策略** 表（模板见 `templates/git-strategy.md`）。`writing-plans` 产出应在 header 重复该表。
 
+## Smoke（仅登录 + 可选 datasets）
+
+| 路径 | 用途 |
+|------|------|
+| `smoke/auth/pc/*.json` | PC localStorage |
+| `smoke/auth/h5/*.json` | H5 localStorage / sessionStorage |
+| `smoke/roles.md` | 角色索引 |
+| `smoke/datasets.yaml` | **可选**，用户自备 golden ID；Phase 0 不生成 |
+
+**测什么：** `docs/superpowers/plans/<phase>.md` 验收清单。  
+**怎么跑：** [phases/smoke-run.md](phases/smoke-run.md) — @plan + smoke/auth。
+
 ## 与 superpowers 产物的关系
 
 ```

@@ -3,11 +3,11 @@ name: feature-phase0-kickoff
 description: >-
   Use when starting a cross-platform feature and the user provides a PRD,
   prototypes, screenshots, or API docs scattered across the repo. Consolidates
-  all materials into docs/requirements/, generates roadmap and asset index,
-  before brainstorming or implementation. 用户提供 PRD/原型/截图/接口文档、资源散落
-  各目录、或要求 Phase 0 / requirements / roadmap 组织时使用。
+  all materials into docs/requirements/, generates roadmap, saves smoke auth
+  fixtures by platform, before brainstorming or implementation. 用户提供 PRD/原型/
+  截图/接口文档、角色登录 localStorage、或要求 Phase 0 / smoke auth 时使用。
 category: deliver
-tags: [workflow, requirements, roadmap, handoff]
+tags: [workflow, requirements, roadmap, smoke, handoff]
 source: xiaozhi93/agent-skills
 ---
 
@@ -19,25 +19,28 @@ source: xiaozhi93/agent-skills
 
 ## Overview
 
-**核心原则：** 发现 → 清单确认 → 迁移归集 → 文档脚手架 → handoff。单源真相，原路径不留副本。
+**核心原则：** 发现 → 清单确认 → 迁移归集 → 文档脚手架 → smoke 登录 fixture → handoff。单源真相，原路径不留副本。
 
 **产出：**
 
 1. 资源清单 + feature slug（Step 1）
 2. 迁移完成 + `MIGRATION.md`（Step 2）
 3. `prd.md` / `roadmap.md` / `assets/`（Step 3）
-4. 完成清单 + Phase N 开场白（Step 4）
+4. `smoke/auth/` + `roles.md`（Step 3.5）
+5. 完成清单 + Phase N 开场白（Step 4）
 
 **内嵌能力：**
 
 - 目录与命名规范 → [reference.md](reference.md)
 - 模板 → [templates/](templates/)
+- 冒烟执行 → [phases/smoke-run.md](phases/smoke-run.md)（Phase N plan 完成后）
 
 ## When to Use
 
 - 用户开始跨端（PC / H5 / 主应用）大需求，手头有 PRD + 视觉/接口材料
 - 资源散落在 `docs/`、子仓库、`*.png` 临时目录等多处，需要**迁入统一管理、原处不留**
 - 用户要求「Phase 0」「整理 requirements」「生成 roadmap」
+- 用户提供 PC/H5 角色登录 localStorage，需在 Phase 0 写入 `smoke/auth/`
 
 **When NOT to use:**
 
@@ -57,6 +60,7 @@ source: xiaozhi93/agent-skills
 | 1 | [phases/01-intake.md](phases/01-intake.md) | 资源清单 + feature slug |
 | 2 | [phases/02-migrate.md](phases/02-migrate.md) | 迁移完成 + `MIGRATION.md` |
 | 3 | [phases/03-scaffold.md](phases/03-scaffold.md) | `prd.md` / `roadmap.md` / `assets/` |
+| 3.5 | [phases/03-smoke-setup.md](phases/03-smoke-setup.md) | `smoke/auth/` + `roles.md`（不测什么，不测项来自 plan） |
 | 4 | [phases/04-handoff.md](phases/04-handoff.md) | 完成清单 + 下阶段开场白 |
 
 <HARD-GATE>
@@ -64,6 +68,7 @@ Do NOT move or delete any file until the user explicitly approves the migration 
 Do NOT write spec, plan, or code in this skill.
 Do NOT leave copies at original paths after migration — one canonical location only.
 Do NOT proceed to `/brainstorming` until the user approves `roadmap.md`.
+Do NOT commit `smoke/auth/**/*.json` (contains tokens).
 </HARD-GATE>
 
 ## Output Layout
@@ -76,10 +81,20 @@ docs/requirements/<YYYY-MM-DD>-<feature-slug>/
 ├── roadmap.md
 ├── api.md              # 或 api/ 子目录
 ├── MIGRATION.md        # 迁移审计
-└── assets/
+├── assets/
+│   ├── README.md
+│   └── *.png
+└── smoke/
     ├── README.md
-    └── {platform}-{page}-{scene}.png
+    ├── roles.md
+    └── auth/
+        ├── .gitignore
+        ├── pc/<role>.json
+        └── h5/<role>.json
 ```
+
+**测什么：** Phase N 的 `docs/superpowers/plans/*.md` 验收清单。  
+**冒烟执行：** [phases/smoke-run.md](phases/smoke-run.md) — 读 plan + 注入 `auth/` → 浏览器；缺数据/须人工在报告中说明。
 
 ## Resource Migration Rules
 
@@ -106,6 +121,10 @@ docs/requirements/<YYYY-MM-DD>-<feature-slug>/
 Feature 名称：sap-reimbursement
 涉及平台：PC panasonic、H5 digital-mobile-h5、主应用 cool-front-micro-base
 请扫描并归集所有相关材料，原目录不要留副本。
+
+# 可选：角色登录（写入 smoke/auth/）
+PC 管理员 localStorage：{ ...粘贴... }
+H5 门店执行人 localStorage：{ ...粘贴... }
 ```
 
 ## Templates
@@ -117,6 +136,8 @@ Feature 名称：sap-reimbursement
 | [templates/phase-n-prompt.md](templates/phase-n-prompt.md) | Phase N brainstorm 开场白 |
 | [templates/git-strategy.md](templates/git-strategy.md) | roadmap Git 策略表（方案 A） |
 | [templates/implement-step0-prompt.md](templates/implement-step0-prompt.md) | Plan 执行前 Step 0 开场白 |
+| [templates/smoke-run-prompt.md](templates/smoke-run-prompt.md) | Phase N 完成后冒烟开场白 |
+| [phases/smoke-run.md](phases/smoke-run.md) | 浏览器注入 auth + 报告规程 |
 
 ## Red Flags
 
@@ -127,6 +148,7 @@ Feature 名称：sap-reimbursement
 | Phase 0 里写 spec/plan | scope 膨胀，上下文污染 |
 | Phase 0 @ 全部截图拆 roadmap | token 浪费，阶段划分质量差 |
 | 外链图片不下载 | Agent 后续对话读不到图 |
+| 提交 smoke auth json 到 git | token 泄露 |
 
 **STOP 信号：**
 
@@ -134,6 +156,7 @@ Feature 名称：sap-reimbursement
 - 「原目录留一份备份」→ 违反单源原则，除非用户明确例外
 - 「顺便 brainstorm Phase 1」→ 本技能止于 handoff
 - 「description 里写清流程就行，不用迁文件」→ 必须执行迁移
+- 「auth 先 commit 方便协作」→ 必须保持 gitignore，仅本地 fixture
 
 ## Integration
 
@@ -141,5 +164,6 @@ Feature 名称：sap-reimbursement
 
 - Phase N → superpowers `brainstorming`（单阶段 scope + 该 Phase 截图）
 - 实现 → `writing-plans` → `subagent-driven-development` 或 `executing-plans`
+- Phase N plan 完成后 → [phases/smoke-run.md](phases/smoke-run.md) 按 plan 验收清单冒烟
 
 **相关技能：** `brainstorming`（Phase 0 是其前置，不替代）；`generate-dev-handoff-prompt`（分析完成后生成实现提示词）
