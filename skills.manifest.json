@@ -46,6 +46,18 @@
         "subagent-driven-development",
         "verification-before-completion"
       ]
+    },
+    {
+      "name": "generate-dev-handoff-prompt",
+      "description": "从需求分析与代码探索合成可粘贴到新会话的开发提示词",
+      "triggers": ["生成开发提示词", "生成实现提示词", "handoff prompt", "dev prompt", "generate-dev-handoff-prompt", "导出开发指令"],
+      "requires": ["verification-before-completion"]
+    },
+    {
+      "name": "feature-phase0-kickoff",
+      "description": "跨端大需求 Phase 0：归集 PRD/截图/API 到 docs/requirements 并生成 roadmap",
+      "triggers": ["Phase 0", "整理 requirements", "生成 roadmap", "需求归集", "feature-phase0-kickoff"],
+      "requires": ["brainstorming", "writing-plans"]
     }
   ]
 }
